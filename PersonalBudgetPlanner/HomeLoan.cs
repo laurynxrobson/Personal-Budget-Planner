@@ -18,7 +18,7 @@ namespace PersonalBudgetPlanner
         private double tax;
         private double gross;
         private double loanRepay;
-
+        public static Vehicle vehicle = new();
 
         // GETTERS AND SETTERS
 
@@ -108,21 +108,12 @@ namespace PersonalBudgetPlanner
         {
             this.loanRepay = loanRepay;
         }
-        //Constructor with parameters
-        public HomeLoan(double gro, double wnl, double tra, double pho, double oth, double taxIncome)
-        {
-            groceries = gro;
-            waterLights = wnl;
-            travel = tra;
-            phone = pho;
-            other = oth;
-            tax = taxIncome;
-        }
+
 
         //Override Methods
         public override double Expenditures()
         {
-            total = (groceries + waterLights + travel + phone + other + tax);
+            total = groceries + waterLights + travel + phone + other + tax + vehicle.GetTotalVehicle();
             return total;
         }
     }
